@@ -1,0 +1,7 @@
+COMMAND PRESSTABLE  BIG_ENDIAN "Command to trigger driver circuits on pressure table"
+  APPEND_PARAMETER driver1 1 uint 0 1 1 "Status of driver 1"
+  APPEND_PARAMETER driver2 1 uint 0 1 1 "Status of driver 2"
+  APPEND_PARAMETER driver3 1 uint 0 1 1 "Status of driver 3"
+  APPEND_PARAMETER driver4 1 uint 0 1 1 "Status of driver 4"
+  APPEND_PARAMETER driver5 1 uint 0 1 1 "Status of driver 5"
+  APPEND_PARAMETER driver6 1 uint 0 1 1 "Status of driver 6"
