@@ -1,0 +1,9 @@
+SCREEN AUTO AUTO 0.5
+
+VERTICAL
+  TITLE "Servo Control"
+  VALUERANGEBAR POT POT_POSITION pot_position 0 65535 
+
+END
+
+
