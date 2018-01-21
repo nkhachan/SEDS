@@ -37,6 +37,7 @@ void loop()
 {
   pot.pot_position = analogRead(potPin);
   sendTlm();
+  delay(250);
 }
 
 void sendTlm()
