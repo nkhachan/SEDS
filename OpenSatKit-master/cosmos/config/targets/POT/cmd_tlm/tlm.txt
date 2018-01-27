@@ -1,4 +1,4 @@
 TELEMETRY POT POT_POSITION BIG_ENDIAN "Position of the potentiometer in order to adjust pressure valve servo"
   APPEND_ITEM length 8 UINT "Packet size so COSMOS can read the serial port."
   APPEND_ID_ITEM pktid 8 UINT 1 "Packet id so COSMOS can identify the packet and store it into the internal database."
-  APPEND_ITEM pot_position 16 UINT "Position of the potentiometer for manual mode"
+  APPEND_ITEM pot_position 8 UINT "Position of the potentiometer for manual mode"
