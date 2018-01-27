@@ -19,7 +19,7 @@ struct pot_t
 {
   byte length;
   byte id;
-  unsigned int pot_position;
+  byte pot_position;
 };
 
 // Global variable to hold State of Health tlm packet.
@@ -37,7 +37,7 @@ void loop()
 {
   pot.pot_position = analogRead(potPin);
   sendTlm();
-  delay(250);
+  delay(100);
 }
 
 void sendTlm()
