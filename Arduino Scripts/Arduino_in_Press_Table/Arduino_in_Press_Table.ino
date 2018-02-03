@@ -1,7 +1,8 @@
-/#include <TimerOne.h>
+include <TimerOne.h>
 
 int pressPin = 7;
 const byte interruptPin = 19;
+byte fun;
 String msg;
 /*
   Blink
@@ -44,10 +45,10 @@ valve_t valve_info;
 void setup()
 {
   valve_info.id = 1;
-  valve_info.pressure = 250;
+  valve_info.pressure = 90;
 
   pinMode(13, OUTPUT); // initialize digital pin 13 as an output.
-  Serial2.begin(57600);  // initialize serial
+  Serial1.begin(57600);  // initialize serial
   Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
   
@@ -56,15 +57,10 @@ void setup()
 // the loop function runs over and over again forever
 void loop()
 {
-   sendTlm();
-/*    //processCmds();
-    if (stringComplete) {
-    Serial.println(inputString);
-    // clear the string:
-    inputString = "";
-    stringComplete = false;
-  }*/
-  delay(250);
+ /*  while(Serial2.available()){
+        info.driver1 = Serial2.read();
+        Serial.println(info.driver1);//Do what you whant whit your message 
+  }//end while*/
 }
 
 void readPressure()
@@ -82,18 +78,17 @@ void writeTlm(const char* pkt, byte size)
 {
   for(int i=0; i<size; i++)
   {
-    Serial2.write(pkt[i]);
+    Serial1.write(pkt[i]);
   }
 }     
 
 void incoming()
 {
-  char _bite;
-  sei();//Disable hardware interrupts for a moment
-  while(Serial2.available()>0){
-
-        Serial.print(msg);//Do what you whant whit your message
-    
+  while(Serial1.available()){
+   //     delay(1);
+        info.driver1 = Serial1.read();
+        Serial.println(info.driver1);//Do what you whant whit your message 
   }//end while
-cli();//reenabling hardware interrupts
+  Serial.println("................................");//Do what you whant whit your message 
 }
+
