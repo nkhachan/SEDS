@@ -1,6 +1,6 @@
 #include <TimerOne.h>
 
-int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6;
+int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6, autoControl, pot_reading;
 const byte interruptPin = 19;
 byte fun;
 String msg;
@@ -84,6 +84,9 @@ void parseMsg(String msg){
   driver3 = int(msg.charAt(msg.length()-5)) - 48;
   driver2 = int(msg.charAt(msg.length()-6)) - 48;
   driver1 = int(msg.charAt(msg.length()-7)) - 48;
+  autoControl = int(msg.charAt(msg.length()-1)) - 48;
+  pot_reading = msg.substring(0,msg.length()-7).toInt();
+  Serial.print(pot_reading);
 }
 
 void writeDrivers(){
@@ -93,6 +96,7 @@ void writeDrivers(){
   digitalWrite(5,driver4);
   digitalWrite(6,driver5);
   digitalWrite(7,driver6);
+  digitalWrite(8,autoControl);
 }
 
 
@@ -100,7 +104,5 @@ void incoming()
 {
   while(Serial1.available()){
     msg += Serial1.read();
-     //   info.driver1 = Serial1.read();
-      //  Serial.println(info.driver1);//Do what you whant whit your message 
   }//end while
 }
