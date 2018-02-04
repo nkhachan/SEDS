@@ -1,9 +1,10 @@
-include <TimerOne.h>
+#include <TimerOne.h>
 
-int pressPin = 7;
+int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6;
 const byte interruptPin = 19;
 byte fun;
 String msg;
+
 /*
   Blink
   Turns on an LED on for one second, then off for one second, repeatedly.
@@ -18,18 +19,6 @@ String msg;
   modified 8 May 2014
   by Scott Fitzgerald
  */
-struct info_t
-{
-  byte driver1;
-  byte driver2;
-  byte driver3;
-  byte driver4;
-  byte driver5;
-  byte driver6;
-  byte automatic;
-  byte pot_reading;
-};
-
 struct valve_t
 {
   byte length;
@@ -38,7 +27,6 @@ struct valve_t
 };
 
 // Global variable to hold State of Health tlm packet.
-info_t info;
 valve_t valve_info;
 
 // the setup function runs once when you press reset or power the board
@@ -47,7 +35,7 @@ void setup()
   valve_info.id = 1;
   valve_info.pressure = 90;
 
-  pinMode(13, OUTPUT); // initialize digital pin 13 as an output.
+  pinMode(50, OUTPUT); // initialize digital pin 13 as an output.
   Serial1.begin(57600);  // initialize serial
   Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
@@ -61,6 +49,13 @@ void loop()
         info.driver1 = Serial2.read();
         Serial.println(info.driver1);//Do what you whant whit your message 
   }//end while*/
+  if (msg != ""){
+  // Serial.println(msg);
+   parseMsg(msg);
+   writeDrivers();
+   msg = "";
+  }
+  delay(250);
 }
 
 void readPressure()
@@ -82,13 +77,30 @@ void writeTlm(const char* pkt, byte size)
   }
 }     
 
+void parseMsg(String msg){
+  driver6 = int(msg.charAt(msg.length()-2)) - 48;
+  driver5 = int(msg.charAt(msg.length()-3)) - 48;
+  driver4 = int(msg.charAt(msg.length()-4)) - 48;
+  driver3 = int(msg.charAt(msg.length()-5)) - 48;
+  driver2 = int(msg.charAt(msg.length()-6)) - 48;
+  driver1 = int(msg.charAt(msg.length()-7)) - 48;
+}
+
+void writeDrivers(){
+  digitalWrite(2,driver1);
+  digitalWrite(3,driver2);
+  digitalWrite(4,driver3);
+  digitalWrite(5,driver4);
+  digitalWrite(6,driver5);
+  digitalWrite(7,driver6);
+}
+
+
 void incoming()
 {
   while(Serial1.available()){
-   //     delay(1);
-        info.driver1 = Serial1.read();
-        Serial.println(info.driver1);//Do what you whant whit your message 
+    msg += Serial1.read();
+     //   info.driver1 = Serial1.read();
+      //  Serial.println(info.driver1);//Do what you whant whit your message 
   }//end while
-  Serial.println("................................");//Do what you whant whit your message 
 }
-
