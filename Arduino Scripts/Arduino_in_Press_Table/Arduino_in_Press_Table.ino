@@ -1,24 +1,12 @@
 #include <TimerOne.h>
+#include <LiquidCrystal.h>
 
 int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6, autoControl, pot_reading;
 const byte interruptPin = 19;
 byte fun;
 String msg;
+LiquidCrystal lcd(48, 49, 50, 51, 52, 53);
 
-/*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
-
-  Most Arduinos have an on-board LED you can control. On the Uno and
-  Leonardo, it is attached to digital pin 13. If you're unsure what
-  pin the on-board LED is connected to on your Arduino model, check
-  the documentation at http://www.arduino.cc
-
-  This example code is in the public domain.
-
-  modified 8 May 2014
-  by Scott Fitzgerald
- */
 struct valve_t
 {
   byte length;
@@ -40,22 +28,24 @@ void setup()
   Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
   
+  lcd.begin(16,2);
+  lcd.print("Hello World");
+  
 }
 
 // the loop function runs over and over again forever
 void loop()
 {
- /*  while(Serial2.available()){
-        info.driver1 = Serial2.read();
-        Serial.println(info.driver1);//Do what you whant whit your message 
-  }//end while*/
+  
   if (msg != ""){
-  // Serial.println(msg);
+   lcd.print(msg.substring(2,msg.length()-6));
    parseMsg(msg);
    writeDrivers();
    msg = "";
   }
   delay(250);
+  readPressure();
+  sendTlm();
 }
 
 void readPressure()
@@ -78,15 +68,16 @@ void writeTlm(const char* pkt, byte size)
 }     
 
 void parseMsg(String msg){
-  driver6 = int(msg.charAt(msg.length()-2)) - 48;
-  driver5 = int(msg.charAt(msg.length()-3)) - 48;
-  driver4 = int(msg.charAt(msg.length()-4)) - 48;
-  driver3 = int(msg.charAt(msg.length()-5)) - 48;
-  driver2 = int(msg.charAt(msg.length()-6)) - 48;
-  driver1 = int(msg.charAt(msg.length()-7)) - 48;
-  autoControl = int(msg.charAt(msg.length()-1)) - 48;
-  pot_reading = msg.substring(0,msg.length()-7).toInt();
-  Serial.print(pot_reading);
+  driver6 = int(msg.charAt(msg.length()-1)) - 48;
+  driver5 = int(msg.charAt(msg.length()-2)) - 48;
+  driver4 = int(msg.charAt(msg.length()-3)) - 48;
+  driver3 = int(msg.charAt(msg.length()-4)) - 48;
+  driver2 = int(msg.charAt(msg.length()-5)) - 48;
+  driver1 = int(msg.charAt(msg.length()-6)) - 48;
+  autoControl = int(msg.charAt(1)) - 48;
+  pot_reading = msg.substring(2,msg.length()-6).toInt();
+  printtoBinary(pot_reading);
+  
 }
 
 void writeDrivers(){
@@ -98,6 +89,26 @@ void writeDrivers(){
   digitalWrite(7,driver6);
   digitalWrite(8,autoControl);
 }
+
+void printtoBinary(int pot_reading){
+  digitalWrite(22,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(23,pot_reading%2);
+ pot_reading /= 2;
+  digitalWrite(24,pot_reading%2);
+ pot_reading /= 2;
+  digitalWrite(25,pot_reading%2);
+ pot_reading /= 2;
+  digitalWrite(26,pot_reading%2);
+ pot_reading /= 2;
+  digitalWrite(27,pot_reading%2);
+ pot_reading /= 2;
+   digitalWrite(28,pot_reading%2);
+ pot_reading /= 2;
+   digitalWrite(29,pot_reading%2);
+ pot_reading /= 2;
+}
+
 
 
 void incoming()
