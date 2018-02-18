@@ -1,6 +1,10 @@
+
 #include <TimerOne.h>
 
-struct thermocouples_t
+const byte interruptPin = 0;
+String msg;
+
+struct sensors_t
 {
   byte length;
   byte id;
@@ -8,42 +12,41 @@ struct thermocouples_t
   int thermo2; 
   int thermo3; 
   int thermo4; 
-};
-
-struct press_transducer_t
-{
-  byte length;
-  byte id;
   int press1; 
   int press2; 
   int press3; 
 };
 
 // Global variable to hold State of Health tlm packet.
-thermocouples_t thermocouples;
-press_transducer_t press_trans;
+sensors_t sensor_info;
 
 // the setup function runs once when you press reset or power the board
 void setup()
 {
-  thermocouples.id = 1;
-  press_trans.id = 2;
+  sensor_info.id = 1;
+  sensor_info.press1 = 340;
+  sensor_info.press2 = 340;
+  sensor_info.press3 = 340;
     
   Serial.begin(57600);  // initialize serial:
+  attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
 }
 
 // the loop function runs over and over again forever
 void loop()
 {
-  sendTlm(thermocouples);
-  sendTlm(press_trans);
+   /*if (msg != ""){
+   writeLaunch();
+   msg = "";
+  }*/
+  sendTlm();
   delay(250);
 }
 
-void sendTlm(struct packet)
+void sendTlm()
 {
-  mySoh.length = sizeof(packet);
-  writeTlm((const char*)&packet, sizeof(packet));
+  sensor_info.length = sizeof(sensor_info);
+  writeTlm((const char*)&sensor_info, sizeof(sensor_info));
 }
 
 void writeTlm(const char* pkt, byte size)
@@ -52,4 +55,15 @@ void writeTlm(const char* pkt, byte size)
   {
     Serial.write(pkt[i]);
   }
+}
+
+void incoming()
+{
+  while(Serial.available()){
+    msg += Serial.read();
+  }//end while
+}
+
+void writeLaunch(){
+  int stuff = 1;
 }
