@@ -1,33 +1,49 @@
 
 #include <TimerOne.h>
-
 const byte interruptPin = 0;
 String msg;
-
-struct sensors_t
+struct press_t
 {
   byte length;
   byte id;
-  int thermo1; 
-  int thermo2; 
-  int thermo3; 
-  int thermo4; 
-  int press1; 
-  int press2; 
-  int press3; 
+  
+  byte press1_h; 
+  byte press1_l;
+  
+  byte press2_h; 
+  byte press2_l;
+  
+  byte press3_h;
+  byte press3_l;
 };
 
-// Global variable to hold State of Health tlm packet.
-sensors_t sensor_info;
+
+struct thermo_t
+{
+  byte length;
+  byte id;
+  
+  byte thermo1_h; 
+  byte thermo1_l; 
+
+  byte thermo2_h; 
+  byte thermo2_l; 
+
+  byte thermo3_h; 
+  byte thermo3_l; 
+
+  byte thermo4_h; 
+  byte thermo4_l; 
+};
+thermo_t thermo_info;
+press_t press_info;
 
 // the setup function runs once when you press reset or power the board
 void setup()
 {
-  sensor_info.id = 1;
-  sensor_info.press1 = 340;
-  sensor_info.press2 = 340;
-  sensor_info.press3 = 340;
-    
+  thermo_info.id = 1;
+  press_info.id = 2;
+  
   Serial.begin(57600);  // initialize serial:
   attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
 }
@@ -39,14 +55,22 @@ void loop()
    writeLaunch();
    msg = "";
   }*/
-  sendTlm();
+  collectSensors();
+  sendThermo();
+  sendPress();
   delay(250);
 }
 
-void sendTlm()
+void sendThermo()
 {
-  sensor_info.length = sizeof(sensor_info);
-  writeTlm((const char*)&sensor_info, sizeof(sensor_info));
+  thermo_info.length = sizeof(thermo_info);
+  writeTlm((const char*)&thermo_info, sizeof(thermo_info));
+}
+
+void sendPress()
+{
+  press_info.length = sizeof(press_info);
+  writeTlm((const char*)&press_info, sizeof(press_info));
 }
 
 void writeTlm(const char* pkt, byte size)
@@ -55,6 +79,32 @@ void writeTlm(const char* pkt, byte size)
   {
     Serial.write(pkt[i]);
   }
+}
+
+void collectSensors(){
+  int val1 = analogRead(A2);
+  thermo_info.thermo1_h = (byte)(val1 >> 8);
+  thermo_info.thermo1_l = (byte)(val1);
+  
+  val1 = analogRead(A3);
+  thermo_info.thermo2_h = (byte)(val1 >> 8);
+  thermo_info.thermo2_l = (byte)(val1);
+
+  val1 = analogRead(A4);
+  thermo_info.thermo3_h = (byte)(val1 >> 8);
+  thermo_info.thermo3_l = (byte)(val1);
+
+  val1 = analogRead(A5);
+  thermo_info.thermo4_h = (byte)(val1 >> 8);
+  thermo_info.thermo4_l = (byte)(val1);
+
+  val1 = analogRead(A0);
+  press_info.press1_h = (byte)(val1 >> 8);
+  press_info.press1_l = (byte)(val1);
+  
+  val1 = analogRead(A1);
+  press_info.press2_h = (byte)(val1 >> 8);
+  press_info.press2_l = (byte)(val1);
 }
 
 void incoming()

@@ -1,8 +1,10 @@
 import sys
-sys.path.append("")
+sys.path.append("/usr/local/lib/python3.5/dist-packages")
 
 import os
-os.environ["COSMOS_USERPATH"] = "/home/noopur/Downloads/ballcosmos-0.0.1-py3-none-any.whl_FILES/ballcosmos"
+os.environ["COSMOS_USERPATH"] = "/media/noopur/New Volume/SEDS/OpenSatKit-master/cosmos"
 
-from ballcosmos.script import script
-print("HEllow")
+from ballcosmos.script import *
+
+print("Hello")
+print(tlm('INST HEALTH_STATUS TEMP1'))

@@ -1,11 +1,11 @@
 #include <TimerOne.h>
-#include <LiquidCrystal.h>
 
+int pkt_received = 0;
+char buff[8];
 int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6, autoControl, pot_reading;
 const byte interruptPin = 19;
-byte fun;
 String msg;
-LiquidCrystal lcd(48, 49, 50, 51, 52, 53);
+//int msg = 9;
 
 struct valve_t
 {
@@ -28,24 +28,23 @@ void setup()
   Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
   
-  lcd.begin(16,2);
-  lcd.print("Hello World");
-  
 }
 
 // the loop function runs over and over again forever
 void loop()
-{
-  
+{ 
   if (msg != ""){
-   lcd.print(msg.substring(2,msg.length()-6));
-   parseMsg(msg);
-   writeDrivers();
-   msg = "";
+    if (pkt_received != 0){
+      parseMsg(msg);
+      writeDrivers();
+    }
+    Serial.println(msg);
+    msg = "";
+    pkt_received++;
   }
+  //readPressure();
+  //sendTlm();
   delay(250);
-  readPressure();
-  sendTlm();
 }
 
 void readPressure()
@@ -68,6 +67,7 @@ void writeTlm(const char* pkt, byte size)
 }     
 
 void parseMsg(String msg){
+  //Convert binary data to ascii
   driver6 = int(msg.charAt(msg.length()-1)) - 48;
   driver5 = int(msg.charAt(msg.length()-2)) - 48;
   driver4 = int(msg.charAt(msg.length()-3)) - 48;
@@ -91,22 +91,22 @@ void writeDrivers(){
 }
 
 void printtoBinary(int pot_reading){
-  digitalWrite(22,pot_reading%2);
+  digitalWrite(46,pot_reading%2);
   pot_reading /= 2;
-  digitalWrite(23,pot_reading%2);
- pot_reading /= 2;
-  digitalWrite(24,pot_reading%2);
- pot_reading /= 2;
-  digitalWrite(25,pot_reading%2);
- pot_reading /= 2;
-  digitalWrite(26,pot_reading%2);
- pot_reading /= 2;
-  digitalWrite(27,pot_reading%2);
- pot_reading /= 2;
-   digitalWrite(28,pot_reading%2);
- pot_reading /= 2;
-   digitalWrite(29,pot_reading%2);
- pot_reading /= 2;
+  digitalWrite(47,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(48,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(49,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(50,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(51,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(52,pot_reading%2);
+  pot_reading /= 2;
+  digitalWrite(53,pot_reading%2);
+  pot_reading /= 2;
 }
 
 
@@ -114,6 +114,8 @@ void printtoBinary(int pot_reading){
 void incoming()
 {
   while(Serial1.available()){
-    msg += Serial1.read();
+     msg += Serial1.read();
+    //msg = Serial1.readBytes(buff, 1);
+    //msg = Serial1.parseInt();
   }//end while
 }

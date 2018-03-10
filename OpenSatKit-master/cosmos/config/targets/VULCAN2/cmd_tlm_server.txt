@@ -1,2 +1,2 @@
-INTERFACE VULCAN2INT serial_interface.rb /dev/ttyUSB1 /dev/ttyUSB1 57600 NONE 1 10.0 nil LENGTH 0 8 0 1
+INTERFACE VULCAN2INT serial_interface.rb /dev/ttyUSB2 /dev/ttyUSB2 57600 NONE 1 10.0 nil LENGTH 0 8 0 1
   TARGET VULCAN2
