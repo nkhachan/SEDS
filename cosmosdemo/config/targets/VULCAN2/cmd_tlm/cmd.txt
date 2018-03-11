@@ -1,0 +1,2 @@
+COMMAND VULCAN2 LAUNCH BIG_ENDIAN "Command to trigger launch"
+  APPEND_PARAMETER DRIVER1 1 uint 0 1 1 "Command for driver circuit 1 "

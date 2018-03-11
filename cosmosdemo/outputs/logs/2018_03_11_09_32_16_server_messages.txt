@@ -1,0 +1,86 @@
+2018/03/11 09:32:15.696  INFO: COSMOS Version: 4.1.1
+2018/03/11 09:32:15.697  INFO: Processing target definition in file '/home/noopur/cosmosdemo/config/targets/INST/target.txt'
+2018/03/11 09:32:15.700  INFO: Processing target definition in file '/home/noopur/cosmosdemo/config/targets/INST/target.txt'
+2018/03/11 09:32:15.702  INFO: Processing target definition in file '/home/noopur/cosmosdemo/config/targets/EXAMPLE/target.txt'
+2018/03/11 09:32:15.707  INFO: Processing target definition in file '/home/noopur/cosmosdemo/config/targets/TEMPLATED/target.txt'
+2018/03/11 09:32:15.752  INFO: Processing target definition in file '/home/noopur/cosmosdemo/config/targets/SYSTEM/target.txt'
+2018/03/11 09:32:15.753  INFO: Processing CmdTlmServer configuration in file: /home/noopur/cosmosdemo/config/tools/cmd_tlm_server/cmd_tlm_server.txt
+2018/03/11 09:32:15.868  INFO: Processing CmdTlmServer configuration in file: /home/noopur/cosmosdemo/config/targets/INST/cmd_tlm_server.txt
+2018/03/11 09:32:15.868  INFO: Processing CmdTlmServer configuration in file: /home/noopur/cosmosdemo/config/targets/INST/cmd_tlm_server2.txt
+2018/03/11 09:32:15.869  INFO: Processing CmdTlmServer configuration in file: /home/noopur/cosmosdemo/config/targets/EXAMPLE/cmd_tlm_server.txt
+2018/03/11 09:32:15.870  INFO: Processing CmdTlmServer configuration in file: /home/noopur/cosmosdemo/config/targets/TEMPLATED/cmd_tlm_server.txt
+2018/03/11 09:32:15.878  INFO: Marshal load success: /home/noopur/cosmosdemo/outputs/tmp/marshal_fa9f220caa58416c33a2d6c84996eadc.bin
+2018/03/11 09:32:16.002  INFO: Creating thread for router INST_ROUTER
+2018/03/11 09:32:16.002  INFO: Creating thread for router PREIDENTIFIED_ROUTER
+2018/03/11 09:32:16.002  INFO: Creating thread for router PREIDENTIFIED_CMD_ROUTER
+2018/03/11 09:32:16.003  INFO: Creating thread for interface INST_INT
+2018/03/11 09:32:16.003  INFO: Creating thread for interface INST2_INT
+2018/03/11 09:32:16.003  INFO: Creating thread for interface SYSTEM_INT
+2018/03/11 09:32:16.027  INFO: Starting packet reading for INST_ROUTER
+2018/03/11 09:32:16.027  INFO: Connecting to INST_ROUTER...
+2018/03/11 09:32:16.028  INFO: INST_ROUTER Connection Success
+2018/03/11 09:32:16.028  INFO: Starting packet reading for PREIDENTIFIED_ROUTER
+2018/03/11 09:32:16.028  INFO: Connecting to PREIDENTIFIED_ROUTER...
+2018/03/11 09:32:16.029  INFO: PREIDENTIFIED_ROUTER Connection Success
+2018/03/11 09:32:16.029  INFO: Starting connection maintenance for PREIDENTIFIED_CMD_ROUTER
+2018/03/11 09:32:16.029  INFO: Connecting to PREIDENTIFIED_CMD_ROUTER...
+2018/03/11 09:32:16.029  INFO: PREIDENTIFIED_CMD_ROUTER Connection Success
+2018/03/11 09:32:16.030  INFO: Starting packet reading for INST_INT
+2018/03/11 09:32:16.030  INFO: Connecting to INST_INT...
+2018/03/11 09:32:16.032  INFO: INST_INT Connection Success
+2018/03/11 09:32:16.032  INFO: Starting packet reading for SYSTEM_INT
+2018/03/11 09:32:16.032  INFO: Connecting to SYSTEM_INT...
+2018/03/11 09:32:16.032  INFO: SYSTEM_INT Connection Success
+2018/03/11 09:32:16.035  INFO: Starting packet reading for INST2_INT
+2018/03/11 09:32:16.035  INFO: Connecting to INST2_INT...
+2018/03/11 09:32:16.037  INFO: INST2_INT Connection Success
+2018/03/11 09:32:16.102  INFO: INST2 HEALTH_STATUS TEMP1 = 54.888149999999996 is GREEN_HIGH
+2018/03/11 09:32:16.102  ERROR: INST2 HEALTH_STATUS TEMP2 = -Infinity is RED_LOW
+2018/03/11 09:32:16.102  ERROR: INST2 HEALTH_STATUS TEMP3 = 79.94390000000001 is RED_HIGH
+2018/03/11 09:32:16.102  INFO: INST2 HEALTH_STATUS TEMP4 = -0.057599999999993656 is GREEN
+2018/03/11 09:32:16.102  INFO: Log File Opened : /home/noopur/cosmosdemo/outputs/logs/2018_03_11_09_32_16_tlm.bin
+2018/03/11 09:32:16.102  INFO: INST HEALTH_STATUS TEMP1 = 54.888149999999996 is GREEN_HIGH
+2018/03/11 09:32:16.102  ERROR: INST HEALTH_STATUS TEMP2 = -Infinity is RED_LOW
+2018/03/11 09:32:16.102  ERROR: INST HEALTH_STATUS TEMP3 = 79.94390000000001 is RED_HIGH
+2018/03/11 09:32:16.102  INFO: INST HEALTH_STATUS TEMP4 = -0.057599999999993656 is GREEN
+2018/03/11 09:32:17.044  INFO: INST HEALTH_STATUS TEMP2 = -22.164702929687493 is GREEN
+2018/03/11 09:32:17.048  INFO: INST2 HEALTH_STATUS TEMP2 = -22.164702929687493 is GREEN
+2018/03/11 09:32:18.044  WARN: INST HEALTH_STATUS TEMP1 = 64.77625 is YELLOW_HIGH
+2018/03/11 09:32:18.048  WARN: INST2 HEALTH_STATUS TEMP1 = 64.77625 is YELLOW_HIGH
+2018/03/11 09:32:19.043  ERROR: INST_INT - Unknown 10 byte packet starting: 00000000000000000000
+2018/03/11 09:32:19.048  ERROR: INST2_INT - Unknown 10 byte packet starting: 00000000000000000000
+2018/03/11 09:32:21.068  WARN: INST2 HEALTH_STATUS GROUND2STATUS = UNAVAILABLE is YELLOW
+2018/03/11 09:32:21.069  INFO: Enabling Limits Group: INST2_TEMP2
+2018/03/11 09:32:21.069  INFO: Enabling Limits Group: INST2_GROUND
+2018/03/11 09:32:21.073  WARN: INST HEALTH_STATUS GROUND2STATUS = UNAVAILABLE is YELLOW
+2018/03/11 09:32:21.089  INFO: Log File Closed : /home/noopur/cosmosdemo/outputs/logs/2018_03_11_09_32_16_tlm.bin
+2018/03/11 09:32:21.089  INFO: Clean disconnect from SYSTEM_INT (returned nil)
+2018/03/11 09:32:21.089  INFO: Connection Lost for SYSTEM_INT
+2018/03/11 09:32:21.189  INFO: Killing thread for router INST_ROUTER
+2018/03/11 09:32:21.190  INFO: Clean disconnect from INST_ROUTER (returned nil)
+2018/03/11 09:32:21.190  INFO: Connection Lost for INST_ROUTER
+2018/03/11 09:32:21.273  INFO: Stopped packet reading for INST_ROUTER
+2018/03/11 09:32:21.274  INFO: Disconnected from router INST_ROUTER
+2018/03/11 09:32:21.274  INFO: Killing thread for router PREIDENTIFIED_ROUTER
+2018/03/11 09:32:21.274  INFO: Clean disconnect from PREIDENTIFIED_ROUTER (returned nil)
+2018/03/11 09:32:21.274  INFO: Connection Lost for PREIDENTIFIED_ROUTER
+2018/03/11 09:32:21.378  INFO: Stopped packet reading for PREIDENTIFIED_ROUTER
+2018/03/11 09:32:21.389  INFO: Disconnected from router PREIDENTIFIED_ROUTER
+2018/03/11 09:32:21.389  INFO: Killing thread for router PREIDENTIFIED_CMD_ROUTER
+2018/03/11 09:32:21.389  INFO: Stopped packet reading for PREIDENTIFIED_CMD_ROUTER
+2018/03/11 09:32:21.483  INFO: Disconnected from router PREIDENTIFIED_CMD_ROUTER
+2018/03/11 09:32:21.505  INFO: Killing thread for interface INST_INT
+2018/03/11 09:32:21.510  INFO: Clean disconnect from INST_INT (returned nil)
+2018/03/11 09:32:21.510  INFO: Connection Lost for INST_INT
+2018/03/11 09:32:21.510  INFO: Stopped packet reading for INST_INT
+2018/03/11 09:32:21.516  INFO: Disconnected from interface INST_INT
+2018/03/11 09:32:21.516  INFO: Killing thread for interface INST2_INT
+2018/03/11 09:32:21.525  INFO: Clean disconnect from INST2_INT (returned nil)
+2018/03/11 09:32:21.526  INFO: Connection Lost for INST2_INT
+2018/03/11 09:32:21.526  INFO: Stopped packet reading for INST2_INT
+2018/03/11 09:32:21.527  INFO: Disconnected from interface INST2_INT
+2018/03/11 09:32:21.527  INFO: Killing thread for interface SYSTEM_INT
+2018/03/11 09:32:21.527  INFO: Stopped packet reading for SYSTEM_INT
+2018/03/11 09:32:21.537  INFO: Disconnected from interface SYSTEM_INT
+2018/03/11 09:32:21.537  INFO: Disconnected from interface EXAMPLE_INT
+2018/03/11 09:32:21.538  INFO: Disconnected from interface TEMPLATED_INT
