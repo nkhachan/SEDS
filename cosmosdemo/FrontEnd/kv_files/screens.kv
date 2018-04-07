@@ -1,0 +1,37 @@
+#screens.kv
+
+<PortScreen>:
+    BoxLayout:
+        Button:
+            text: "Vulcan2 Configuration"
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = 1
+                root.manager.current = 'screen_two'
+
+<Vulcan2Screen>:
+    BoxLayout:
+        Button:
+            text: "Port Configuration"
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.transition.duration = 1
+                root.manager.current = 'screen_one'
+        Button:
+            text: "Pressure Table Configuration"
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = 1
+                root.manager.current = 'screen_three'
+
+<PressureTableScreen>
+    BoxLayout:
+        Button:
+            text: "Pressure Table Configuration"
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.transition.duration = 1
+                root.manager.current = 'screen_two'
+        Button:
+            text: "Write Config"
+            on_press:

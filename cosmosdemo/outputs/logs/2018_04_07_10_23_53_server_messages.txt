@@ -1,0 +1,149 @@
+2018/04/07 10:23:52.085  INFO: COSMOS Version: 4.1.1
+2018/04/07 10:23:52.089  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/INST/target.txt'
+2018/04/07 10:23:52.099  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/INST/target.txt'
+2018/04/07 10:23:52.303  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/EXAMPLE/target.txt'
+2018/04/07 10:23:52.304  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/TEMPLATED/target.txt'
+2018/04/07 10:23:52.305  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/SYSTEM/target.txt'
+2018/04/07 10:23:52.305  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/POT/target.txt'
+2018/04/07 10:23:52.306  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/VULCAN2/target.txt'
+2018/04/07 10:23:52.306  INFO: Processing target definition in file '/home/noopur/SEDS/cosmosdemo/config/targets/PRESSTABLE/target.txt'
+2018/04/07 10:23:52.306  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/tools/cmd_tlm_server/cmd_tlm_server.txt
+2018/04/07 10:23:52.307  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/INST/cmd_tlm_server.txt
+2018/04/07 10:23:52.307  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/INST/cmd_tlm_server2.txt
+2018/04/07 10:23:52.308  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/VULCAN2/cmd_tlm_server.txt
+2018/04/07 10:23:52.308  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/POT/cmd_tlm_server.txt
+2018/04/07 10:23:52.309  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/PRESSTABLE/cmd_tlm_server.txt
+2018/04/07 10:23:52.309  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/EXAMPLE/cmd_tlm_server.txt
+2018/04/07 10:23:52.309  INFO: Processing CmdTlmServer configuration in file: /home/noopur/SEDS/cosmosdemo/config/targets/TEMPLATED/cmd_tlm_server.txt
+2018/04/07 10:23:52.319  INFO: Marshal load success: /home/noopur/SEDS/cosmosdemo/outputs/tmp/marshal_3b2401ce4444297fb9aed7d31cf9c8ba.bin
+2018/04/07 10:23:52.465  INFO: Creating thread for router INST_ROUTER
+2018/04/07 10:23:52.465  INFO: Creating thread for router PREIDENTIFIED_ROUTER
+2018/04/07 10:23:52.465  INFO: Starting packet reading for INST_ROUTER
+2018/04/07 10:23:52.465  INFO: Connecting to INST_ROUTER...
+2018/04/07 10:23:52.466  INFO: INST_ROUTER Connection Success
+2018/04/07 10:23:52.466  INFO: Starting packet reading for PREIDENTIFIED_ROUTER
+2018/04/07 10:23:52.466  INFO: Connecting to PREIDENTIFIED_ROUTER...
+2018/04/07 10:23:52.466  INFO: PREIDENTIFIED_ROUTER Connection Success
+2018/04/07 10:23:52.466  INFO: Creating thread for router PREIDENTIFIED_CMD_ROUTER
+2018/04/07 10:23:52.467  INFO: Creating thread for interface INST_INT
+2018/04/07 10:23:52.467  INFO: Creating thread for interface INST2_INT
+2018/04/07 10:23:52.467  INFO: Creating thread for interface SYSTEM_INT
+2018/04/07 10:23:52.483  INFO: Creating thread for interface VULCAN2INT
+2018/04/07 10:23:52.490  INFO: Creating thread for interface POT_INT
+2018/04/07 10:23:52.490  INFO: Creating thread for interface PRESSINT
+2018/04/07 10:23:52.491  INFO: Starting connection maintenance for PREIDENTIFIED_CMD_ROUTER
+2018/04/07 10:23:52.492  INFO: Connecting to PREIDENTIFIED_CMD_ROUTER...
+2018/04/07 10:23:52.492  INFO: PREIDENTIFIED_CMD_ROUTER Connection Success
+2018/04/07 10:23:52.493  INFO: Starting packet reading for INST_INT
+2018/04/07 10:23:52.493  INFO: Connecting to INST_INT...
+2018/04/07 10:23:52.494  INFO: Starting packet reading for INST2_INT
+2018/04/07 10:23:52.494  INFO: Connecting to INST2_INT...
+2018/04/07 10:23:52.495  INFO: Starting packet reading for SYSTEM_INT
+2018/04/07 10:23:52.495  INFO: Connecting to SYSTEM_INT...
+2018/04/07 10:23:52.495  INFO: SYSTEM_INT Connection Success
+2018/04/07 10:23:52.495  INFO: Starting packet reading for VULCAN2INT
+2018/04/07 10:23:52.495  INFO: Connecting to VULCAN2INT...
+2018/04/07 10:23:52.496  ERROR: VULCAN2INT Connection Failed: ENOENT : No such file or directory @ rb_sysopen - /dev/ttyUSB0
+2018/04/07 10:23:52.496  ERROR: ENOENT : No such file or directory @ rb_sysopen - /dev/ttyUSB0
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `open'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/serial_driver.rb:55:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/serial_driver.rb:55:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/streams/serial_stream.rb:62:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/streams/serial_stream.rb:62:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/interfaces/serial_interface.rb:58:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/interfaces/serial_interface.rb:58:in `connect'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:251:in `connect'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:71:in `block (2 levels) in start'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:69:in `synchronize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:69:in `block in start'
+2018/04/07 10:23:52.496  INFO: Starting packet reading for PRESSINT
+2018/04/07 10:23:52.496  INFO: Connecting to PRESSINT...
+2018/04/07 10:23:52.497  ERROR: PRESSINT Connection Failed: ENOENT : No such file or directory @ rb_sysopen - /dev/ttyUSB0
+2018/04/07 10:23:52.497  ERROR: ENOENT : No such file or directory @ rb_sysopen - /dev/ttyUSB0
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `open'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/serial_driver.rb:55:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/serial_driver.rb:55:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/streams/serial_stream.rb:62:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/streams/serial_stream.rb:62:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/interfaces/serial_interface.rb:58:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/interfaces/serial_interface.rb:58:in `connect'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:251:in `connect'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:71:in `block (2 levels) in start'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:69:in `synchronize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:69:in `block in start'
+2018/04/07 10:23:52.500  INFO: INST_INT Connection Success
+2018/04/07 10:23:52.573  INFO: INST2_INT Connection Success
+2018/04/07 10:23:52.574  INFO: INST2 HEALTH_STATUS TEMP1 = 54.888149999999996 is GREEN_HIGH
+2018/04/07 10:23:52.574  ERROR: INST2 HEALTH_STATUS TEMP2 = -Infinity is RED_LOW
+2018/04/07 10:23:52.574  ERROR: INST2 HEALTH_STATUS TEMP3 = 79.94390000000001 is RED_HIGH
+2018/04/07 10:23:52.574  INFO: INST2 HEALTH_STATUS TEMP4 = -0.057599999999993656 is GREEN
+2018/04/07 10:23:52.575  INFO: Log File Opened : /home/noopur/SEDS/cosmosdemo/outputs/logs/2018_04_07_10_23_52_tlm.bin
+2018/04/07 10:23:52.577  INFO: INST HEALTH_STATUS TEMP1 = 54.888149999999996 is GREEN_HIGH
+2018/04/07 10:23:52.577  ERROR: INST HEALTH_STATUS TEMP2 = -Infinity is RED_LOW
+2018/04/07 10:23:52.577  ERROR: INST HEALTH_STATUS TEMP3 = 79.94390000000001 is RED_HIGH
+2018/04/07 10:23:52.577  INFO: INST HEALTH_STATUS TEMP4 = -0.057599999999993656 is GREEN
+2018/04/07 10:23:52.666  INFO: Starting packet reading for POT_INT
+2018/04/07 10:23:52.666  INFO: Connecting to POT_INT...
+2018/04/07 10:23:52.732  ERROR: POT_INT Connection Failed: ENOENT : No such file or directory @ rb_sysopen - /dev/ttyACM0
+2018/04/07 10:23:52.732  ERROR: ENOENT : No such file or directory @ rb_sysopen - /dev/ttyACM0
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `open'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/posix_serial_driver.rb:45:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/serial_driver.rb:55:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/io/serial_driver.rb:55:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/streams/serial_stream.rb:62:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/streams/serial_stream.rb:62:in `initialize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/interfaces/serial_interface.rb:58:in `new'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/interfaces/serial_interface.rb:58:in `connect'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:251:in `connect'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:71:in `block (2 levels) in start'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:69:in `synchronize'
+/home/noopur/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/cosmos-4.1.1/lib/cosmos/tools/cmd_tlm_server/interface_thread.rb:69:in `block in start'
+2018/04/07 10:23:53.508  INFO: INST HEALTH_STATUS TEMP2 = -22.164702929687493 is GREEN
+2018/04/07 10:23:53.513  INFO: INST2 HEALTH_STATUS TEMP2 = -22.164702929687493 is GREEN
+2018/04/07 10:23:54.504  WARN: INST HEALTH_STATUS TEMP1 = 64.77625 is YELLOW_HIGH
+2018/04/07 10:23:54.505  WARN: INST2 HEALTH_STATUS TEMP1 = 64.77625 is YELLOW_HIGH
+2018/04/07 10:23:55.024  INFO: Log File Closed : /home/noopur/SEDS/cosmosdemo/outputs/logs/2018_04_07_10_23_52_tlm.bin
+2018/04/07 10:23:55.024  INFO: Clean disconnect from SYSTEM_INT (returned nil)
+2018/04/07 10:23:55.024  INFO: Connection Lost for SYSTEM_INT
+2018/04/07 10:23:55.124  INFO: Killing thread for router INST_ROUTER
+2018/04/07 10:23:55.125  INFO: Clean disconnect from INST_ROUTER (returned nil)
+2018/04/07 10:23:55.125  INFO: Connection Lost for INST_ROUTER
+2018/04/07 10:23:55.206  INFO: Stopped packet reading for INST_ROUTER
+2018/04/07 10:23:55.216  INFO: Disconnected from router INST_ROUTER
+2018/04/07 10:23:55.216  INFO: Killing thread for router PREIDENTIFIED_ROUTER
+2018/04/07 10:23:55.216  INFO: Clean disconnect from PREIDENTIFIED_ROUTER (returned nil)
+2018/04/07 10:23:55.216  INFO: Connection Lost for PREIDENTIFIED_ROUTER
+2018/04/07 10:23:55.307  INFO: Stopped packet reading for PREIDENTIFIED_ROUTER
+2018/04/07 10:23:55.317  INFO: Disconnected from router PREIDENTIFIED_ROUTER
+2018/04/07 10:23:55.317  INFO: Killing thread for router PREIDENTIFIED_CMD_ROUTER
+2018/04/07 10:23:55.317  INFO: Stopped packet reading for PREIDENTIFIED_CMD_ROUTER
+2018/04/07 10:23:55.338  INFO: Disconnected from router PREIDENTIFIED_CMD_ROUTER
+2018/04/07 10:23:55.359  INFO: Killing thread for interface INST_INT
+2018/04/07 10:23:55.363  INFO: Clean disconnect from INST_INT (returned nil)
+2018/04/07 10:23:55.363  INFO: Connection Lost for INST_INT
+2018/04/07 10:23:55.363  INFO: Stopped packet reading for INST_INT
+2018/04/07 10:23:55.369  INFO: Disconnected from interface INST_INT
+2018/04/07 10:23:55.369  INFO: Killing thread for interface INST2_INT
+2018/04/07 10:23:55.374  INFO: Clean disconnect from INST2_INT (returned nil)
+2018/04/07 10:23:55.374  INFO: Connection Lost for INST2_INT
+2018/04/07 10:23:55.374  INFO: Stopped packet reading for INST2_INT
+2018/04/07 10:23:55.379  INFO: Disconnected from interface INST2_INT
+2018/04/07 10:23:55.379  INFO: Killing thread for interface SYSTEM_INT
+2018/04/07 10:23:55.379  INFO: Stopped packet reading for SYSTEM_INT
+2018/04/07 10:23:55.389  INFO: Disconnected from interface SYSTEM_INT
+2018/04/07 10:23:55.389  INFO: Killing thread for interface VULCAN2INT
+2018/04/07 10:23:55.390  INFO: Stopped packet reading for VULCAN2INT
+2018/04/07 10:23:55.400  INFO: Disconnected from interface VULCAN2INT
+2018/04/07 10:23:55.400  INFO: Killing thread for interface POT_INT
+2018/04/07 10:23:55.400  INFO: Stopped packet reading for POT_INT
+2018/04/07 10:23:55.410  INFO: Disconnected from interface POT_INT
+2018/04/07 10:23:55.410  INFO: Killing thread for interface PRESSINT
+2018/04/07 10:23:55.411  INFO: Stopped packet reading for PRESSINT
+2018/04/07 10:23:55.421  INFO: Disconnected from interface PRESSINT
+2018/04/07 10:23:55.421  INFO: Disconnected from interface EXAMPLE_INT
+2018/04/07 10:23:55.421  INFO: Disconnected from interface TEMPLATED_INT
