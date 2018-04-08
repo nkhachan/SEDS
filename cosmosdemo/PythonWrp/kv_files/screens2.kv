@@ -1,0 +1,42 @@
+#screens2.kv
+
+<ScreenMgr>
+    MainScreen:
+    PortScreen:
+<MainScreen>
+    id: mainscreen
+    name: 'mainscreen'
+    mainscreen: mainscreen
+    AnchorLayout:
+        canvas:
+            Rectangle:
+                source: 'space.jpeg'
+                size: self.size
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        padding: 100, 100
+        Button:
+            halign: 'center'
+            size_hint: None, None
+            size: 150, 75
+            text: "Port \n Configuration"
+            font_name: 'Roboto-Bold'
+            font_size: '20sp'
+            on_release:
+                root.mainscreen.gotoPortScreen(root.manager)
+        Label:
+            halign: 'center'
+            text: "Welcome to the \n Vulcan2 Comm System!"
+            font_size: '75sp'
+            font_name: 'Roboto-Bold'
+
+<PortScreen>
+    name: 'portscreen'
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        Label:
+            halign: 'center'
+            text: "Port Configuration"
+            font_size: '30sp'
+            font_name: 'Roboto-Bold'
