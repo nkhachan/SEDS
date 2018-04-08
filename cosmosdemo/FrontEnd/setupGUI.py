@@ -20,13 +20,19 @@ class Vulcan2Screen(Screen):
 class PressureTableScreen(Screen):
     pass
 
-screen_manager = ScreenManager()
-
-screen_manager.add_widget(PortScreen(name="screen_one"))
-screen_manager.add_widget(Vulcan2Screen(name="screen_two"))
-screen_manager.add_widget(PressureTableScreen(name="screen_three"))
+sm = ScreenManager()
+sm.add_widget(PortScreen(name="screen_one"))
+sm.add_widget(Vulcan2Screen(name="screen_two"))
+sm.add_widget(PressureTableScreen(name="screen_three"))
 
 class SetUpApp(App):
+#    sm = ScreenManager()
+
+#    def addScreens():
+#        sm.add_widget(PortScreen(name="screen_one"))
+#        sm.add_widget(Vulcan2Screen(name="screen_two"))
+    #    sm.add_widget(PressureTableScreen(name="screen_three"))
+
     def build(self):
-        # return a Button() as a root widget
-        return screen_manager
+    #    self.addScreens()
+        return sm
