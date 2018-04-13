@@ -1,9 +1,10 @@
 '''
-GUI for Ground Station
+mainGUI.py
 
 Created by Noopur Khachane
 March 11, 2018
 '''
+
 from GUI import *
 
 class GroundStationApp(App):

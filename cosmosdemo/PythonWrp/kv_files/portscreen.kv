@@ -1,0 +1,80 @@
+#portscreen.kv
+
+<PortScreen>
+    id: portscreen
+    name: 'portscreen'
+    portscreen: portscreen
+    name: 'portscreen'
+    AnchorLayout:
+        canvas:
+            Rectangle:
+                source: 'img/space.jpeg'
+                size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "20dp"
+        BoxLayout:
+            spacing: "20dp"
+            size_hint_y:100
+            Label:
+                text: "Port Configuration"
+                font_size: '50sp'
+
+
+        BoxLayout:
+            spacing: "20dp"
+            size_hint_y: 100
+            Label:
+                halign: 'left'
+                text: "Vulcan2 Transceiver Port"
+                font_size: '25sp'
+        BoxLayout:
+            spacing: "20dp"
+            padding: '10dp'
+            size_hint_y: 100
+            TextInput:
+                font_name: 'Roboto-Bold'
+                font_size: '20sp'
+                text: '/dev/ttyUSB0'
+        BoxLayout:
+            spacing: "20dp"
+            padding: '10dp'
+            size_hint_y: 100
+            orientation: 'horizontal'
+            Label:
+            Button:
+                size_hint_x: 0.2
+                text: "Write"
+                on_release:
+                    root.portscreen.writeVulcan2Port()
+
+
+        BoxLayout:
+            spacing: "20dp"
+            padding: '10dp'
+            size_hint_y: 100
+            Label:
+                text: "Pressure Table Transceiver Port"
+                font_size: '25sp'
+        BoxLayout:
+            spacing: "20dp"
+            padding: '10dp'
+            size_hint_y: 100
+            TextInput:
+                font_name: 'Roboto-Bold'
+                font_size: '20sp'
+                text: '/dev/ttyUSB0'
+
+        BoxLayout:
+            spacing: "20dp"
+            padding: '10dp'
+            size_hint_y: 100
+            orientation: 'horizontal'
+            Label:
+            Button:
+                size_hint_x: 0.2
+                text: "Write"
+                on_release:
+                    root.portscreen.writePressTablePort()

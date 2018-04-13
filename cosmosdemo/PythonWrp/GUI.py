@@ -1,3 +1,10 @@
+'''
+GUI.py
+
+Created by Noopur Khachane
+April 7, 2018
+'''
+
 import os
 #os.environ["KIVY_NO_FILELOG"] = "1"
 #os.environ["KIVY_NO_CONSOLELOG"] = "1"
