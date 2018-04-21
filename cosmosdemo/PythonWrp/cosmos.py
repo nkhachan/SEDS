@@ -5,6 +5,12 @@ Created by Noopur Khachane
 April 7, 2018
 '''
 
+
+cosmos_names = {
+		"VULCAN2" : "VULCAN2INT",
+		"PRESSTABLE" : "PRESSINT",
+	}
+
 import sys
 sys.path.append("python-ballcosmos")
 import os
@@ -24,14 +30,16 @@ def cntCosmos():
             break
     print("Cosmos Server is Connected!")
 
-def writePort(portname, target, baudrate):
+def writePort(port, target, baudrate):
     fname = '../config/targets/' + target + '/cmd_tlm_server.txt'
-    print ("In cosmos function " + target)
-    f = open(fname, 'r')
-    config = f.readline()
+    f = open(fname, 'w')
+    server_config = makeStrings(port, target, baudrate)
+    for string in server_config:
+        f.write(string)
     f.close()
-    tokens = config.split(' ')
-    tokens[3] = portname
-    tokens[4] = portname
-    tokens[5] = baudrate
-    print (" ".join(tokens))
+
+def makeStrings(port, target, baudrate):
+    string1 = "INTERFACE " + target + " serial_interface.rb " + port + " " + \
+        port + " " + baudrate + " NONE 1 10.0 nil LENGTH 0 8 0 1\n"
+    string2 = "  TARGET " + target
+    return [string1, string2]

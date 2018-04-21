@@ -25,3 +25,5 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+from kivy.base import runTouchApp
+from kivy.core.window import Window
