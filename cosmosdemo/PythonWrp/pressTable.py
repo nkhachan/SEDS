@@ -6,7 +6,9 @@ April 7, 2018
 '''
 
 from cosmos import *
+from interface import *
 
 class PressTable(Interface):
 
-    name = "PRESSTABLE_INT"
+    def __init__(self):
+        super().__init__("PRESSINT", "PRESS", "/dev")

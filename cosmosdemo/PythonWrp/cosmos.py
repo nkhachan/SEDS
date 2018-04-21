@@ -5,12 +5,6 @@ Created by Noopur Khachane
 April 7, 2018
 '''
 
-
-cosmos_names = {
-		"VULCAN2" : "VULCAN2INT",
-		"PRESSTABLE" : "PRESSINT",
-	}
-
 import sys
 sys.path.append("python-ballcosmos")
 
@@ -18,20 +12,23 @@ import os
 os.environ["COSMOS_USERPATH"] = "cosmosdemo"
 
 from ballcosmos.script import *
+from vulcan2 import *
+from pressTable import *
 
-class Cosmos(object):
+# Create our 2 interfaces
 
-	def connect(self):
-		os.system("ruby ../Launcher &")
-		while True:
-			try:
-				tlm('INST HEALTH_STATUS TEMP1')
-			except:
-				continue
-			else:
-				break
-		print("Cosmos Server is Connected!")
+vulcan2    = Vulcan2()
+#presstable = PressTable()
 
 
-	def initialize_Interfaces(self):
-		vulcan2int = 
+def connect(self):
+	os.system("ruby ../Launcher &")
+	while True:
+		try:
+			tlm('INST HEALTH_STATUS TEMP1')
+		except:
+			continue
+		else:
+			break
+
+	print("Cosmos Server is Connected!")

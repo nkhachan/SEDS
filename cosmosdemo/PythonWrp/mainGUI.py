@@ -9,10 +9,6 @@ from GUI import *
 from threading import Thread
 
 def get_microphone_level():
-    """
-    source: http://stackoverflow.com/questions/26478315/getting-volume-levels-from-pyaudio-for-use-in-arduino
-    audioop.max alternative to audioop.rms
-    """
     global levels
     while True:
         mx = 100

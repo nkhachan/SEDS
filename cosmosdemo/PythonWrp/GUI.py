@@ -6,8 +6,8 @@ April 7, 2018
 '''
 
 import os
-#os.environ["KIVY_NO_FILELOG"] = "1"
-#os.environ["KIVY_NO_CONSOLELOG"] = "1"
+os.environ["KIVY_NO_FILELOG"] = "1"
+os.environ["KIVY_NO_CONSOLELOG"] = "1"
 
 import kivy
 kivy.require('1.0.7')

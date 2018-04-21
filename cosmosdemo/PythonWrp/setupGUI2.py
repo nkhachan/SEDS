@@ -7,6 +7,7 @@ April 7, 2018
 
 from GUI import *
 from cosmos import *
+import cosmos
 from usb import *
 
 Builder.load_file('kv_files/screens2.kv')
@@ -25,10 +26,11 @@ class PortScreen(Screen):
         pass
 
     def writeVulcan2Port(self):
-        writePort('/dev','VULCAN2', '57600')
+        cosmos.vulcan2.setPort('/dev')
+        cosmos.vulcan2.writePort()
 
     def writePressTablePort(self):
-        writePort('/dev','PRESSTABLE', '57600')
+        pass
 
     def exit(self):
         App.get_running_app().stop()
