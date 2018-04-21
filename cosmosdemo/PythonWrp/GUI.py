@@ -27,3 +27,5 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 from kivy.base import runTouchApp
 from kivy.core.window import Window
+from kivy.garden.graph import MeshLinePlot
+from kivy.clock import Clock

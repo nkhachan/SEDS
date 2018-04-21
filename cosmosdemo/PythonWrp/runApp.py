@@ -12,8 +12,8 @@ from setupGUI2 import *
 
 def main():
     SetUpApp().run()
-    #startCosmos()
-    #cntCosmos()
+    cosmos = Cosmos()
+    cosmos.connect()
     #GroundStationApp().run()
 
 if __name__ == "__main__":

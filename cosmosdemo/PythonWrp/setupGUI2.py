@@ -32,8 +32,6 @@ class PortScreen(Screen):
 
     def exit(self):
         App.get_running_app().stop()
-class Vulcan2Screen(Screen):
-    pass
 
 class PortDropDown(DropDown):
     pass
@@ -46,5 +44,4 @@ class SetUpApp(App):
         sm = ScreenMgr()
         sm.add_widget(MainScreen(name = "mainscreen"))
         sm.add_widget(PortScreen(name = "portscreen"))
-        #sm.add_widget(Vulcan2Screen(name = "Vulcan2 Screen"))
         return sm
