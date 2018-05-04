@@ -22,22 +22,21 @@ class MainScreen(Screen):
         instance.current = 'portscreen'
 
 class PortScreen(Screen):
+
     def on_enter(self):
         pass
 
-    def writeVulcan2Port(self):
-        cosmos.vulcan2.setPort('/dev')
+    def writeVulcan2Port(self, port):
+        cosmos.vulcan2.setPort(port)
         cosmos.vulcan2.writePort()
 
-    def writePressTablePort(self):
-        pass
+    def writePressTablePort(self, port):
+        cosmos.presstable.setPort(port)
+        cosmos.presstable.writePort()
 
     def exit(self):
+        print ("Trying to exit")
         App.get_running_app().stop()
-
-class PortDropDown(DropDown):
-    pass
-
 
 class SetUpApp(App):
 

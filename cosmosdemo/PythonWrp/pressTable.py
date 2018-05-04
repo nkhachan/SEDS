@@ -11,4 +11,4 @@ from interface import *
 class PressTable(Interface):
 
     def __init__(self):
-        super().__init__("PRESSINT", "PRESS", "/dev")
+        super().__init__("PRESSINT", "PRESSTABLE", "/dev")

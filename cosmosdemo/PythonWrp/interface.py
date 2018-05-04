@@ -1,7 +1,7 @@
 '''
 interface.py
 
-Interface Base Class to define char
+Interface Base Class
 
 Create by Noopur Khachane
 April 21, 2018
@@ -32,6 +32,7 @@ class Interface(object):
     # Port Configuration
 
     def writePort(self):
+        print ("write Port")
         fname = '../config/targets/' + self.target + '/cmd_tlm_server.txt'
         f = open(fname, 'w')
         server_config = self.makeConfigStrings()

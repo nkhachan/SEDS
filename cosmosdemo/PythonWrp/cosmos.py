@@ -18,7 +18,7 @@ from pressTable import *
 # Create our 2 interfaces
 
 vulcan2    = Vulcan2()
-#presstable = PressTable()
+presstable = PressTable()
 
 
 def connect(self):

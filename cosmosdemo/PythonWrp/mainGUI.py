@@ -6,7 +6,7 @@ March 11, 2018
 '''
 
 from GUI import *
-from threading import Thread
+#from threading import Thread
 
 def get_microphone_level():
     global levels
@@ -38,9 +38,9 @@ class GroundStationApp(App):
         # return a Button() as a root widget
         return Builder.load_file("kv_files/mainGUI.kv")
 
-if __name__ == "__main__":
-    levels = []  # store levels of microphone
-    get_level_thread = Thread(target = get_microphone_level)
-    get_level_thread.daemon = True
-    get_level_thread.start()
-    GroundStationApp().run()
+#if __name__ == "__main__":
+    #levels = []  # store levels of microphone
+    #get_level_thread = Thread(target = get_microphone_level)
+    #get_level_thread.daemon = True
+    #get_level_thread.start()
+    #GroundStationApp().run()

@@ -9,9 +9,6 @@ from GUI import *
 
 #Builder.load_file('kv_files/screens.kv')
 
-def getPorts():
-    return ["banana", "apple"]
-
 class PortScreen(Screen):
     pass
 
