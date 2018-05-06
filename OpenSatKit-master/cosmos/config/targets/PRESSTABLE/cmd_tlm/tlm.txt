@@ -1,4 +1,0 @@
-TELEMETRY PRESSTABLE VALVE_PRESSURE BIG_ENDIAN "Status of the Drivers"
-  APPEND_ITEM length 8 UINT "Packet size so COSMOS can read the serial port."
-  APPEND_ID_ITEM pktid 8 UINT 1 "Packet id so COSMOS can identify the packet and store it into the internal database."
-  APPEND_ITEM pressure 8 UINT "Pressure at the valve"

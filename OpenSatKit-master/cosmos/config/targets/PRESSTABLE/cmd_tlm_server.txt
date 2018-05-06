@@ -1,2 +1,0 @@
-INTERFACE PRESSINT serial_interface.rb /dev/ttyUSB0 /dev/ttyUSB0 57600 NONE 1 10.0 nil LENGTH 0 8 0 1
-  TARGET PRESSTABLE
