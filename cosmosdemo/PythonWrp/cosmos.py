@@ -21,7 +21,7 @@ vulcan2    = Vulcan2()
 presstable = PressTable()
 
 
-def connect(self):
+def connect():
 	os.system("ruby ../Launcher &")
 	while True:
 		try:

@@ -13,7 +13,7 @@ from usb import *
 Builder.load_file('kv_files/screens2.kv')
 Builder.load_file('kv_files/portscreen.kv')
 
-class ScreenMgr(ScreenManager):
+class setupScreenMgr(ScreenManager):
     pass
 
 class MainScreen(Screen):
@@ -35,14 +35,13 @@ class PortScreen(Screen):
         cosmos.presstable.writePort()
 
     def exit(self):
-        print ("Trying to exit")
         App.get_running_app().stop()
 
 class SetUpApp(App):
 
     def build(self):
         Window.borderless = True
-        sm = ScreenMgr()
+        sm = setupScreenMgr()
         sm.add_widget(MainScreen(name = "mainscreen"))
         sm.add_widget(PortScreen(name = "portscreen"))
         return sm

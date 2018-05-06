@@ -22,10 +22,14 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.uix.dropdown import DropDown
 from kivy.uix.textinput import TextInput
+from kivy.uix.label import Label
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.properties import StringProperty
+from kivy.graphics import Rectangle
+import random
 from kivy.lang import Builder
 from kivy.base import runTouchApp
 from kivy.core.window import Window
-from kivy.garden.graph import MeshLinePlot
+#from kivy.garden.graph import MeshLinePlot
 from kivy.clock import Clock

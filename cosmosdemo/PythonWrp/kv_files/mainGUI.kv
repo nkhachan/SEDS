@@ -1,20 +1,28 @@
-Logic:
+<StatusScreen>
+    id: statusscreen
+    name: 'statusscreen'
+    statusscreen: statusscreen
+    AnchorLayout:
+        canvas:
+            Rectangle:
+                source: 'img/space.jpeg'
+                size: self.size
+
     BoxLayout:
-        orientation: "vertical"
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "20dp"
         BoxLayout:
-            size_hint: [1, .8]
-            Graph:
-                id: graph
-                xlabel: ""
-                ylabel: "Level"
+            spacing: "20dp"
+            size_hint_y:100
+            Label:
+                text: root.rn1
+                font_size: '50sp'
+
         BoxLayout:
-            size_hint: [1, .2]
-            orientation: "horizontal"
-            Button:
-                text: "START"
-                bold: True
-                on_press: root.start()
-            Button:
-                text: "STOP"
-                bold: True
-                on_press: root.stop()
+            spacing: "20dp"
+            size_hint_y: 100
+            Label:
+                halign: 'left'
+                text: root.rn2
+                font_size: '25sp'
