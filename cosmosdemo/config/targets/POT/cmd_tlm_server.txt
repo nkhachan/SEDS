@@ -1,2 +1,0 @@
-INTERFACE POT_INT serial_interface.rb /dev/ttyACM0 /dev/ttyACM0 9600 NONE 1 10.0 nil LENGTH 0 8 0 1
-  TARGET POT
