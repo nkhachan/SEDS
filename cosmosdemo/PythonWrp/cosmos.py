@@ -22,7 +22,7 @@ presstable = PressTable()
 
 
 def connect():
-	os.system("ruby ../Launcher &")
+	os.system("ruby ../tools/CmdTlmServer &")
 	while True:
 		try:
 			tlm('INST HEALTH_STATUS TEMP1')

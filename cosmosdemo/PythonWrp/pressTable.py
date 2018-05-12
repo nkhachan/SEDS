@@ -27,8 +27,16 @@ class PressTable(Interface):
     drivers     = [None]*NUM_DRIVERS
     regulators  = [None]*NUM_REGULATOR
 
+
     def __init__(self):
         super().__init__("PRESSINT", "PRESSTABLE", "/dev")
 
-    def sendDriverVal(self, num, val):
-        cmd('PRESSTABLE DRIVERS DRIVER' + str(num))
+    def setDriver(self, num, val):
+        self.drivers[num] = val;
+
+    def writeDrivers(self):
+        cmdString = "PRESSTABLE DRIVERS with "
+        for i in range(len(self.drivers)):
+            cmdString += "DRIVER" + str(i+1) + " " + str(self.drivers[i]) + ", "
+        cmdString += "INIT 1"
+        cmd(cmdString)
