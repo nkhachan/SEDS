@@ -21,7 +21,7 @@ class Presstransducers(BoxLayout):
         self.height = 100
         self.size_hint_y = 1
 
-        cosmos.vulcan2.getPress()
+        #cosmos.vulcan2.getPress()
         title = Label(text = "Pressure\n Transducers", \
                       font_size = self.height*0.5, \
                       halign = 'center')
@@ -34,20 +34,34 @@ class Presstransducers(BoxLayout):
             self.add_widget(self.pressscreen[i])
 
     def updatePress(self, dt):
-        cosmos.vulcan2.getPress()
+        #cosmos.vulcan2.getPress()
         for i in range(len(self.pressscreen)):
             self.pressscreen[i].text = str(cosmos.vulcan2.presstransducers[i])
 
-'''class ThermoPlot(BoxLayout):
+class ThermoPlot(BoxLayout):
+    Y = [0]*50
+    Z = [0]*50
+    plt.ion()
+    graph = plt.plot(Y)[0]
+    graph2 = plt.plot(Z)[0]
+
     def __init__(self, **kwargs):
         super(ThermoPlot, self).__init__(**kwargs)
-
-        plt.plot([1, 23, 2, 4])
-        plt.ylabel('some numbers')
+        plt.ylim((0, 1023))
+        plt.ylabel('Thermocouples')
 
         thermoplt = FigureCanvasKivyAgg(plt.gcf())
-        self.add(thermoplt)
-'''
+        self.add_widget(thermoplt)
+
+    def updateGraph(self,dt):
+        self.Y.pop(0)
+        self.Z.pop(0)
+        self.Y.append(cosmos.vulcan2.getThermoRead(1))
+        self.Z.append(cosmos.vulcan2.getThermoRead(2))
+        self.graph.set_ydata(self.Y)
+        self.graph2.set_ydata(self.Z)
+        plt.draw()
+
 
 class Thermocouples(BoxLayout):
     thermoscreen = [None]*cosmos.vulcan2.NUM_THERMO
@@ -58,7 +72,7 @@ class Thermocouples(BoxLayout):
         self.height = 100
         self.size_hint_y = 1
 
-        cosmos.vulcan2.getThermo()
+        #cosmos.vulcan2.getThermo()
         title = Label(text = "Thermocouples", \
                       font_size = self.height*0.5)
         self.add_widget(title)
@@ -69,7 +83,7 @@ class Thermocouples(BoxLayout):
             self.add_widget(self.thermoscreen[i])
 
     def updateThermo(self, dt):
-        cosmos.vulcan2.getThermo()
+        #cosmos.vulcan2.getThermo()
         for i in range(len(self.thermoscreen)):
             self.thermoscreen[i].text = str(cosmos.vulcan2.thermocouples[i])
 
@@ -119,10 +133,10 @@ class Drivers(BoxLayout):
         self.add_widget(setDrivers)
 
     def writeDrivers(self,instance):
-        for i in range(len(self.driversscreen)):
-            cosmos.presstable.setDriver(i, self.driversscreen[i].active*1)
-        cosmos.presstable.writeDrivers()
-        shutdown_cmd_tlm()
+        pass
+        #for i in range(len(self.driversscreen)):
+        #    cosmos.presstable.setDriver(i, self.driversscreen[i].active*1)
+        #cosmos.presstable.writeDrivers()
 
 class Vulcan2Box(BoxLayout):
     def __init__(self, **kwargs):
@@ -132,13 +146,16 @@ class Vulcan2Box(BoxLayout):
 
         box1 = Thermocouples()
         box2 = Presstransducers()
+        box3 = ThermoPlot()
 
         self.add_widget(box1)
         self.add_widget(box2)
+        self.add_widget(box3)
 
         refresh_time = 0.1
         Clock.schedule_interval(box1.updateThermo, refresh_time)
         Clock.schedule_interval(box2.updatePress, refresh_time)
+        Clock.schedule_interval(box3.updateGraph, refresh_time)
 
 class PressTableBox(BoxLayout):
     def __init__(self, **kwargs):
