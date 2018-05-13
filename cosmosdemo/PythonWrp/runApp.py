@@ -13,7 +13,7 @@ import sys
 
 def main():
     #SetUpApp().run()
-    #cosmos.connect()
+    cosmos.connect()
     GroundStationApp().run()
 
 if __name__ == "__main__":
