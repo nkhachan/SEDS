@@ -35,6 +35,8 @@ struct thermo_t
   byte thermo4_h; 
   byte thermo4_l; 
 };
+
+//Initialize structs for thermocouple and pressure transducer data
 thermo_t thermo_info;
 press_t press_info;
 
@@ -45,7 +47,7 @@ void setup()
   press_info.id = 2;
   
   Serial.begin(57600);  // initialize serial:
-  attachInterrupt(digitalPinToInterrupt(interruptPin),incoming,HIGH);
+  attachInterrupt(digitalPinToInterrupt(interruptPin),incoming, RISING);
 }
 
 // the loop function runs over and over again forever
@@ -81,6 +83,7 @@ void writeTlm(const char* pkt, byte size)
   }
 }
 
+//Collect Data from All Sensors
 void collectSensors(){
   int val1 = analogRead(A2);
   thermo_info.thermo1_h = (byte)(val1 >> 8);
