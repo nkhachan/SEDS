@@ -2,7 +2,7 @@
 
 int pkt_received = 0;
 char buff[8];
-int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6, autoControl, pot_reading;
+int pressPin = 7, driver1, driver2, driver3, driver4, driver5, driver6;
 const byte interruptPin = 19;
 String msg;
 //int msg = 9;
@@ -74,9 +74,8 @@ void parseMsg(String msg){
   driver3 = int(msg.charAt(msg.length()-4)) - 48;
   driver2 = int(msg.charAt(msg.length()-5)) - 48;
   driver1 = int(msg.charAt(msg.length()-6)) - 48;
-  autoControl = int(msg.charAt(1)) - 48;
-  pot_reading = msg.substring(2,msg.length()-6).toInt();
-  printtoBinary(pot_reading);
+  //autoControl = int(msg.charAt(1)) - 48;
+  //pot_reading = msg.substring(2,msg.length()-6).toInt();
   
 }
 
@@ -87,26 +86,6 @@ void writeDrivers(){
   digitalWrite(5,driver4);
   digitalWrite(6,driver5);
   digitalWrite(7,driver6);
-  digitalWrite(8,autoControl);
-}
-
-void printtoBinary(int pot_reading){
-  digitalWrite(46,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(47,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(48,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(49,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(50,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(51,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(52,pot_reading%2);
-  pot_reading /= 2;
-  digitalWrite(53,pot_reading%2);
-  pot_reading /= 2;
 }
 
 

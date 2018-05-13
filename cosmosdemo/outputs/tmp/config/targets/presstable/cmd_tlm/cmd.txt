@@ -1,6 +1,4 @@
 COMMAND PRESSTABLE DRIVERS BIG_ENDIAN "Command to trigger driver circuits on pressure table"
-  APPEND_PARAMETER auto 8 uint 0 1 0 "Servo set to 1-Auto 0-Manual"
-  APPEND_PARAMETER pot_reading 8 uint 0 255 1 "Potentiometer reading"
   APPEND_PARAMETER driver1 8 uint 0 1 0 "Command for driver 1"
   APPEND_PARAMETER driver2 8 uint 0 1 0 "Command for driver 2"
   APPEND_PARAMETER driver3 8 uint 0 1 0 "Command for driver 3"

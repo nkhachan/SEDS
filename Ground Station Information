@@ -1,0 +1,76 @@
+Vulcan2
+
+Everything is 4 bytes (except the actuation)
+
+Abort
+Safety Enabled (0/1)
+
+Voltage/Current Measurements
+  Main Battery Voltage
+  Main Battery Current
+  5V Rail
+  5V Rail Current
+  24V Rail
+  24V Rail Current
+
+4 Thermocouples
+  LOX Tank
+  Helium Tank
+  RP1 Tank
+
+5 Pressure Transducers
+  LOX Tank
+  Helium Tank
+  RP1 Tank
+  RP1 Tank Pilot
+  LOX Tank Pilot
+
+1 Actuation Board (8 drivers)
+  LOX Vent Valve
+  RP1 Vent Valve
+  Ignition E-matches
+  3 Recovery E-matches (Read Only)
+
+Pressure Table
+
+2 Thermocouples
+  Helium Ambient Temperature
+  Electronics Panel Ambient Temperature
+
+Pressure Transducers
+  K bottle Pressure
+  RP1 Tank Pilot
+  LOX Tank Pilot
+  Helium Tank Fill
+  PNA Pressure
+  Extra One
+
+1 Actuation Board (8 drivers)
+  PNA1
+  PNA2
+  RP1 Tank Pilot
+  LOX Tank Pilot
+  Helium Tank Fill
+  Electric Ball Valve 1
+  Electric Ball Valve 2
+
+ETC.
+
+Count Down to Launch
+
+
+STATES
+
+Idle = Safety is on
+
+On Vulcan2
+LOX Vent Valve = OPEN(1)
+RP1 Vent Valve = OPEN
+
+Live = Safety is off
+Configure = Safety is off(but other things)
+Fill
+Ready to Launch
+Launch
+Abort
+Warning

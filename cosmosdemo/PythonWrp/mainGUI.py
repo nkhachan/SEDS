@@ -14,7 +14,6 @@ from PressTableGui import *
 class mainScreenMgr(ScreenManager):
     pass
 
-
 class StatusBox(BoxLayout):
     def __init__(self, **kwargs):
         super(StatusBox, self).__init__(**kwargs)

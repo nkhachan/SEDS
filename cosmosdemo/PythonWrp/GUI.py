@@ -6,19 +6,22 @@ April 7, 2018
 '''
 
 import os
-#os.environ["KIVY_NO_FILELOG"] = "1"
-#os.environ["KIVY_NO_CONSOLELOG"] = "1"
+os.environ["KIVY_NO_FILELOG"] = "1"
+os.environ["KIVY_NO_CONSOLELOG"] = "1"
 
 import kivy
 kivy.require('1.0.7')
 
 from kivy.config import Config
-Config.set('graphics', 'width', '1600')
-Config.set('graphics', 'height', '1000')
+Config.set('graphics', 'width', '2000')
+Config.set('graphics', 'height', '1500')
 
 import matplotlib.pyplot as plt
 import random
 import numpy as np
+
+plt.style.use('dark_background')
+GRAPH_RANGE = 75
 
 from kivy.app import App
 from kivy.uix.button import Button
@@ -36,5 +39,3 @@ from kivy.lang import Builder
 from kivy.base import runTouchApp
 from kivy.core.window import Window
 from kivy.clock import Clock
-
-plt.style.use('dark_background')

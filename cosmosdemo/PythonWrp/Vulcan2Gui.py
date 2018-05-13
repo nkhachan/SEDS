@@ -27,13 +27,14 @@ class ThermoPlot(BoxLayout):
     graphs = [None]*cosmos.vulcan2.NUM_THERMO
     plt.ion()
     for i in range(cosmos.vulcan2.NUM_THERMO):
-        Y[i] = [0]*50
-        graphs[i] = plt.plot(Y[:][i])[0]
+        Y[i] = [0]*GRAPH_RANGE
+        graphs[i] = plt.plot(Y[:][i], label = str(i))[0]
 
     def __init__(self, **kwargs):
         super(ThermoPlot, self).__init__(**kwargs)
-        plt.ylim((0, 1023))
+        plt.ylim((0, 1400))
         plt.ylabel('Thermocouples')
+        plt.legend()
 
         thermoplt = FigureCanvasKivyAgg(plt.gcf())
         self.add_widget(thermoplt)
