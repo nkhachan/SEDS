@@ -12,9 +12,9 @@ import sys
 
 
 def main():
-    #SetUpApp().run()
+    SetUpApp().run()
     #cosmos.connect()
-    GroundStationApp().run()
+    #GroundStationApp().run()
 
 if __name__ == "__main__":
     main()

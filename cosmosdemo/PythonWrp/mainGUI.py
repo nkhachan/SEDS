@@ -6,8 +6,6 @@ March 11, 2018
 '''
 
 from GUI import *
-import cosmos
-from cosmos import *
 from Vulcan2Gui import *
 from PressTableGui import *
 

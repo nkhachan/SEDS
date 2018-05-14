@@ -1,5 +1,5 @@
-import cosmos
-from cosmos import *
+import GroundStation
+from GroundStation import *
 from GUI import *
 
 class Vulcan2Box(BoxLayout):
@@ -20,7 +20,6 @@ class Vulcan2Box(BoxLayout):
         Clock.schedule_interval(box1.updateThermo, refresh_time)
         Clock.schedule_interval(box2.updatePress, refresh_time)
         Clock.schedule_interval(box3.updateGraph, refresh_time)
-
 
 class ThermoPlot(BoxLayout):
     Y = [None]*cosmos.vulcan2.NUM_THERMO

@@ -1,5 +1,5 @@
-import cosmos
-from cosmos import *
+import GroundStation
+from GroundStation import *
 from GUI import *
 
 class PressTableBox(BoxLayout):

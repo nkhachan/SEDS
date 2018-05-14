@@ -12,14 +12,6 @@ import os
 os.environ["COSMOS_USERPATH"] = "cosmosdemo"
 
 from ballcosmos.script import *
-from vulcan2 import *
-from pressTable import *
-
-# Create our 2 interfaces
-
-vulcan2    = Vulcan2()
-presstable = PressTable()
-
 
 def connect():
 	os.system("ruby ../tools/CmdTlmServer &")

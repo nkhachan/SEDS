@@ -14,7 +14,6 @@ April 7, 2018
 
 
 '''
-
 from cosmos import *
 from interface import *
 
