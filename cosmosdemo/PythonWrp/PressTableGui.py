@@ -1,31 +1,32 @@
-import GroundStation
-from GroundStation import *
 from GUI import *
 
 class PressTableBox(BoxLayout):
-    def __init__(self, **kwargs):
+    def __init__(self, GS, **kwargs):
         super(PressTableBox, self).__init__(**kwargs)
         self.orientation = 'horizontal'
         self.size_hint_y = 0.5
 
-        box1 = Drivers()
-        box2 = Regulators()
+        box1 = Drivers(GS)
+        box2 = Regulators(GS)
 
         self.add_widget(box1)
         self.add_widget(box2)
 
 class Regulators(BoxLayout):
-    regulatorscreen = [None]*cosmos.presstable.NUM_REGULATOR
+    regulatorscreen = None
+    GS = None
 
-    def __init__(self, **kwargs):
+    def __init__(self, GS, **kwargs):
         super(Regulators, self).__init__(**kwargs)
+        self.GS = GS
+        self.regulatorscreen = [None]*self.GS.presstable.NUM_REGULATOR
         self.orientation = 'vertical'
-        self.height = 100
+        self.height      = 100
         self.size_hint_y = 1
 
-        title = Label(text = "Pressure\n Regulators", \
+        title = Label(text      = "Pressure\n Regulators", \
                       font_size = self.height*0.5, \
-                      halign = 'center')
+                      halign    = 'center')
         self.add_widget(title)
 
         for i in range(len(self.regulatorscreen)):
@@ -35,17 +36,21 @@ class Regulators(BoxLayout):
             self.add_widget(self.regulatorscreen[i])
 
 class Drivers(BoxLayout):
-    driversscreen = [None]*cosmos.presstable.NUM_DRIVERS
+    GS = None
+    driversscreen = None
 
-    def __init__(self, **kwargs):
+
+    def __init__(self, GS, **kwargs):
         super(Drivers, self).__init__(**kwargs)
-        self.orientation = 'vertical'
-        self.height = 100
-        self.size_hint_y = 1
 
-        title = Label(text = "Drivers", \
+        self.GS = GS
+        self.driversscreen = [None]*self.GS.presstable.NUM_DRIVERS
+        self.orientation   = 'vertical'
+        self.height        = 100
+        self.size_hint_y   = 1
+
+        title = Label(text      = "Drivers", \
                       font_size = self.height*0.5)
-
         self.add_widget(title)
 
         for i in range(len(self.driversscreen)):
@@ -53,13 +58,12 @@ class Drivers(BoxLayout):
             self.add_widget(Label(text = str(i+1), font_size = self.height*0.4))
             self.add_widget(self.driversscreen[i])
 
-        setDrivers = Button(text = "Write Drivers", \
+        setDrivers = Button(text      = "Write Drivers", \
                             font_size = self.height*0.2)
         setDrivers.bind(on_press = self.writeDrivers)
         self.add_widget(setDrivers)
 
     def writeDrivers(self,instance):
-        #pass
         for i in range(len(self.driversscreen)):
-            cosmos.presstable.setDriver(i, self.driversscreen[i].active*1)
-        cosmos.presstable.writeDrivers()
+            print ("Stuff")
+            self.GS.presstable.setDriver(i, self.driversscreen[i].active*1)

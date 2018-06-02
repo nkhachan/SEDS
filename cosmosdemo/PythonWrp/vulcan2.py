@@ -5,26 +5,46 @@ Vulcan2
 
 Created by Noopur Khachane
 April 7, 2018
+
+Telemetry Items :
+
+    Voltage/Current Measurements
+      Main Battery Voltage
+      Main Battery Current
+      5V Rail
+      5V Rail Current
+      24V Rail
+      24V Rail Current
+
+    4 Thermocouple Readings
+      LOX Tank
+      Helium Tank
+      RP1 Tank
+
+    5 Pressure Readings
+      LOX Tank
+      Helium Tank
+      RP1 Tank
+      RP1 Tank Pilot
+      LOX Tank Pilot
+
+    Actuation Board
+      3 Recovery E-matches (Read Only)
+
+Command Items :
+
+    Actuation Board
+      LOX Vent Valve
+      RP1 Vent Valve
+      Ignition E-matches
+
 '''
 
 from cosmos import *
 from interface import *
 
 class Vulcan2(Interface):
-    """
-    ###################################
-    # Telemetry Items :               #
-    #                                 #
-    # 4 Thermocouple Readings         #
-    # 3 Pressure Readings             #
-    #                                 #
-    ###################################
-    # Command Items :                 #
-    #                                 #
-    # 1 Launch bit                    #
-    #                                 #
-    ###################################
-    """
+    vThread    = None
     NUM_THERMO = 4
     NUM_PRESS  = 3
     thermocouples    = [None]*NUM_THERMO
@@ -34,10 +54,12 @@ class Vulcan2(Interface):
         super().__init__("VULCAN2INT", "VULCAN2", "/dev")
 
     def getThermo(self):
+        print ("Got Thermocouple Reading")
         for i in range(len(self.thermocouples)):
             self.thermocouples[i] = self.getThermoRead(i+1)
 
     def getPress(self):
+        print ("Got Transducer Reading")
         for i in range(len(self.presstransducers)):
             self.presstransducers[i] = self.getPressRead(i+1)
 
@@ -46,3 +68,8 @@ class Vulcan2(Interface):
 
     def getPressRead(self, num):
         return tlm('VULCAN2 PRESS_TRANSDUCERS PRESS' + str(num))
+
+    def update(self):
+        self.getThermo()
+        self.getPress()
+        self.vThread = threading.Timer(1.0, self.update).start()

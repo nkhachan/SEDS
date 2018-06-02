@@ -3,18 +3,13 @@ runApp
 
 Created by Noopur Khachane
 April 7, 2018
-'''
 
-from cosmos import *
+import mainGUI
 from mainGUI import *
-from setupGUI2 import *
 import sys
 
-
-def main():
-    SetUpApp().run()
-    #cosmos.connect()
+def runApp():
+    # Ground Station Application
+    GSApp = GroundStationApp()
     #GroundStationApp().run()
-
-if __name__ == "__main__":
-    main()
+'''

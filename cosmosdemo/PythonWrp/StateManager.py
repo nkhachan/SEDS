@@ -1,6 +1,6 @@
 from enum import Enum
 
-class state(Enum)
+class state(Enum):
     IDLE    = 0
     LIVE    = 1
     CONFIG  = 2
@@ -11,6 +11,11 @@ class state(Enum)
     WARNING = 7
 
 class StateManager():
-    
-    def _init_(self, state):
-        current = state
+    sThread = None
+    current = state.IDLE
+
+    def _init_(self):
+        pass
+
+    def run(self):
+        pass
