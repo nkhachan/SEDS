@@ -11,6 +11,7 @@ class state(Enum):
     WARNING = 7
 
 class StateManager():
+    # Thread for updates from COSMOS server
     sThread = None
     current = state.IDLE
 

@@ -4,7 +4,6 @@ class PressTableBox(BoxLayout):
     def __init__(self, GS, **kwargs):
         super(PressTableBox, self).__init__(**kwargs)
         self.orientation = 'horizontal'
-        self.size_hint_y = 0.5
 
         box1 = Drivers(GS)
         box2 = Regulators(GS)
@@ -39,7 +38,6 @@ class Drivers(BoxLayout):
     GS = None
     driversscreen = None
 
-
     def __init__(self, GS, **kwargs):
         super(Drivers, self).__init__(**kwargs)
 
@@ -65,5 +63,8 @@ class Drivers(BoxLayout):
 
     def writeDrivers(self,instance):
         for i in range(len(self.driversscreen)):
-            print ("Stuff")
             self.GS.presstable.setDriver(i, self.driversscreen[i].active*1)
+
+if __name__ == '__main__':
+    #global GS
+    PressTableApp(GS).run()

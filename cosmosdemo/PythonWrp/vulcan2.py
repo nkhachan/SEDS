@@ -9,24 +9,24 @@ April 7, 2018
 Telemetry Items :
 
     Voltage/Current Measurements
-      Main Battery Voltage
-      Main Battery Current
-      5V Rail
-      5V Rail Current
-      24V Rail
-      24V Rail Current
+      0 - Main Battery Voltage
+      1 - Main Battery Current
+      3 - 5V Rail
+      4 - 5V Rail Current
+      5 - 24V Rail
+      6 - 24V Rail Current
 
     4 Thermocouple Readings
-      LOX Tank
-      Helium Tank
-      RP1 Tank
+      0 - LOX Tank
+      1 - Helium Tank
+      2 - RP1 Tank
 
     5 Pressure Readings
-      LOX Tank
-      Helium Tank
-      RP1 Tank
-      RP1 Tank Pilot
-      LOX Tank Pilot
+      0 - LOX Tank
+      1 - Helium Tank
+      2 - RP1 Tank
+      3 - RP1 Tank Pilot
+      4 - LOX Tank Pilot
 
     Actuation Board
       3 Recovery E-matches (Read Only)
@@ -34,9 +34,9 @@ Telemetry Items :
 Command Items :
 
     Actuation Board
-      LOX Vent Valve
-      RP1 Vent Valve
-      Ignition E-matches
+      0 - LOX Vent Valve
+      1 - RP1 Vent Valve
+      2 - Ignition E-matches
 
 '''
 
@@ -44,11 +44,35 @@ from cosmos import *
 from interface import *
 
 class Vulcan2(Interface):
+    # Thread for updates from COSMOS server
     vThread    = None
-    NUM_THERMO = 4
-    NUM_PRESS  = 3
-    thermocouples    = [None]*NUM_THERMO
+
+    # TELEMETRY ITEMS
+    # Thermocouple Readings
+    NUM_THERMO    = 3
+    thermocouples = [None]*NUM_THERMO
+    thermonames   = ["LOX Tank", "Helium Tank", "RP1 Tank"]
+
+    # Pressure Trnsducer Readings
+    NUM_PRESS        = 5
     presstransducers = [None]*NUM_PRESS
+    pressnames       = ["LOX Tank", "Helium Tank", "RP1 Tank", "RP1 Tank Pilot", \
+                        "LOX Tank Pilot"]
+    # Ematch state (Read only)
+    NUM_ACT_REC      = 3
+    actuationrec     = [None]*NUM_ACT_REC
+
+    # Battery Readings
+    NUM_BATTERY   = 6
+    batteries     = [None]*NUM_BATTERY
+    battnames     = ["Main Battery Voltage", "Main Battery Current", "5V Rail", \
+                     "5V Rail Current", "24V Rail", "24 Rail Current"]
+
+    # COMMAND ITEMS
+    # Actuation Board Output
+    NUM_ACTUATION    = 3
+    actuationsend    = [None]*NUM_ACTUATION
+
 
     def __init__(self):
         super().__init__("VULCAN2INT", "VULCAN2", "/dev")
@@ -72,4 +96,5 @@ class Vulcan2(Interface):
     def update(self):
         self.getThermo()
         self.getPress()
+        # Run thread again
         self.vThread = threading.Timer(1.0, self.update).start()

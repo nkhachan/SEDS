@@ -31,7 +31,7 @@ class GroundStation:
 
     def start(self):
         # Start the COSMOS telemetry server
-        cosmos.connect()
+        #cosmos.connect()
         # Start threads for Vulcan2 and Pressure Table Data Acquisition, and
         # state manager checks
         try :

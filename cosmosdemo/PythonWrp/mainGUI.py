@@ -15,7 +15,7 @@ class mainScreenMgr(ScreenManager):
 class StatusBox(BoxLayout):
     def __init__(self, GS, **kwargs):
         super(StatusBox, self).__init__(**kwargs)
-        self.orientation = 'vertical'
+        self.orientation = 'horizontal'
 
         box1 = Vulcan2Box(GS)
         box2 = PressTableBox(GS)
@@ -41,7 +41,8 @@ class StatusScreen(Screen):
 
 class GroundStationApp(App):
 
-    def setGS(self, GS):
+    def __init__(self, GS, **kwargs):
+        super(GroundStationApp, self).__init__(**kwargs)
         self.GS = GS
 
     def build(self):

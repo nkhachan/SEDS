@@ -34,14 +34,30 @@ from cosmos import *
 from interface import *
 
 class PressTable(Interface):
-    pThread = None
-    sendable = False
-    NUM_DRIVERS   = 6
+    # Thread for updates from COSMOS server
+    pThread  = None
+    # Bit to set if updates are made, and as a result, cmds needs to be sent
+    updated = False
+
+    # COMMAND ITEMS
+    # Actuation Board(Drivers)
+    NUM_DRIVERS   = 8
+    drivers       = [None]*NUM_DRIVERS
+    drivnames     = ["PNA1", "PNA2", "RP1 Tank Pilot", "LOX Tank Pilot #1", \
+                     "LOX Tank Pilot # 2", "LOX Tank Pilot Depress", \
+                     "Helium Tank Pilot", "Electric Ball Valve 1", \
+                     "Electric Ball Valve 2"]
+
+    # TELEMETRY ITEMS
+    # Read from the Regulators
     NUM_REGULATOR = 3
-    # Output
-    drivers     = [None]*NUM_DRIVERS
-    # Input
-    regulators  = [None]*NUM_REGULATOR
+    regulators    = [None]*NUM_REGULATOR
+
+    NUM_THERMO    = 2
+    thermocouples = [None]*NUM_THERMO
+    thermonames   = ["Helium Ambient Temperature", \
+                     "Electronics Panel Ambient Temperature"]
+
 
     def __init__(self):
         super().__init__("PRESSINT", "PRESSTABLE", "/dev")

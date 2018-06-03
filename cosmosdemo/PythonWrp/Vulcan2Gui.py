@@ -1,10 +1,10 @@
 from GUI import *
 
+
 class Vulcan2Box(BoxLayout):
     def __init__(self, GS, **kwargs):
         super(Vulcan2Box, self).__init__(**kwargs)
         self.orientation = 'horizontal'
-        self.size_hint_y = 0.5
 
         box1 = Thermocouples(GS)
         box2 = Presstransducers(GS)
@@ -107,3 +107,7 @@ class Presstransducers(BoxLayout):
         #self.GS.vulcan2.getPress()
         for i in range(len(self.pressscreen)):
             self.pressscreen[i].text = str(self.GS.vulcan2.presstransducers[i])
+
+if __name__ == '__main__':
+    #global GS
+    Vulcan2App(GS).run()

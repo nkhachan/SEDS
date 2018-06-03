@@ -30,7 +30,7 @@ Builder.load_file('kv_files/portscreen.kv')
 class setupScreenMgr(ScreenManager):
     pass
 
-class MainScreen(Screen):
+class SetUpScreen(Screen):
 
     def gotoPortScreen(self, instance):
         instance.current = 'portscreen'
@@ -56,6 +56,6 @@ class SetUpApp(App):
     def build(self):
         Window.borderless = True
         sm = setupScreenMgr()
-        sm.add_widget(MainScreen(name = "mainscreen"))
+        sm.add_widget(SetUpScreen(name = "setupscreen"))
         sm.add_widget(PortScreen(name = "portscreen"))
         return sm

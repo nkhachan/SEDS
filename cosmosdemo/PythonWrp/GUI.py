@@ -14,11 +14,14 @@ kivy.require('1.0.7')
 
 from kivy.config import Config
 Config.set('graphics', 'width', '2000')
-Config.set('graphics', 'height', '1500')
+Config.set('graphics', 'height', '100')
 
 import matplotlib.pyplot as plt
 import random
 import numpy as np
+import multiprocessing
+import threading
+from threading import *
 
 plt.style.use('dark_background')
 GRAPH_RANGE = 75
@@ -39,3 +42,5 @@ from kivy.lang import Builder
 from kivy.base import runTouchApp
 from kivy.core.window import Window
 from kivy.clock import Clock
+
+Window.size = (3000, 1000)

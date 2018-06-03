@@ -1,0 +1,39 @@
+#launchscreen.kv
+
+<LaunchScreen>
+    id: launchscreen
+    name: 'mainscreen'
+    launchscreen: launchscreen
+    AnchorLayout:
+        canvas:
+            Rectangle:
+                source: 'img/space.jpeg'
+                size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "20dp"
+        BoxLayout:
+            spacing: "20dp"
+            padding: '20dp'
+            size_hint_y:50
+            Label:
+                text: "Launcher"
+                font_size: '50sp'
+
+        BoxLayout:
+            spacing: "40dp"
+            padding: '40dp'
+            size_hint_y: 100
+            orientation: 'horizontal'
+            Button:
+                text: "Launch Vulcan2"
+                font_size: "50dp"
+                on_release:
+                    root.launchscreen.launchVulcan2()
+            Button:
+                text: "Launch PressTable"
+                font_size: "50dp"
+                on_release:
+                    root.portscreen.launchPressTable()

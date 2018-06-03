@@ -1,16 +1,19 @@
 from GroundStation import *
-from setupGUI2 import *
+from setupGUI import *
 from mainGUI import *
+import multiprocessing
 
 def main():
-    SetUpApp().run()
+    # Run Configuration Applications
+    #SetUpApp().run()
+
+    # Start Ground Station (aka Communication with Cosmos Server)
     GS = GroundStation()
-    GS.start()
-    GSApp = GroundStationApp()
-    GSApp.setGS(GS)
+    #GS.start()
+
+    # Start Main Ground Station Application
+    GSApp = GroundStationApp(GS)
     GSApp.run()
 
 if __name__ == "__main__":
-    #SetUpApp().run()
-    #GS = GroundStation()
     main()
