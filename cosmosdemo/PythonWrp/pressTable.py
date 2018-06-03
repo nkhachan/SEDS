@@ -41,12 +41,12 @@ class PressTable(Interface):
 
     # COMMAND ITEMS
     # Actuation Board(Drivers)
-    NUM_DRIVERS   = 8
+    NUM_DRIVERS   = 9
     drivers       = [None]*NUM_DRIVERS
-    drivnames     = ["PNA1", "PNA2", "RP1 Tank Pilot", "LOX Tank Pilot #1", \
-                     "LOX Tank Pilot # 2", "LOX Tank Pilot Depress", \
-                     "Helium Tank Pilot", "Electric Ball Valve 1", \
-                     "Electric Ball Valve 2"]
+    drivnames     = ["PNA1 (QD #1)", "PNA2 (QD #2)", "PNA 3 (MVASA)" \
+                     "RP1 Tank Pilot", "LOX Tank Pilot #1 (Undershoot)", \
+                     "LOX Tank Pilot #2 (Pilot)", "LOX Tank Pilot Depress", \
+                     "Helium Tank Fill", "Helium Fill Line Depress"]
 
     # TELEMETRY ITEMS
     # Read from the Regulators
